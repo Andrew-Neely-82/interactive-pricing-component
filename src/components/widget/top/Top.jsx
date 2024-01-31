@@ -1,3 +1,4 @@
+import IOSSwitch from "./slider/Slider";
 import { useState } from "react";
 
 const pageViews = ["10K", "50K", "100K", "500K", "1M"];
@@ -6,6 +7,9 @@ const monthlyRate = [8, 12, 16, 24, 36];
 const Top = () => {
   const [views, setViews] = useState(pageViews[2]);
   const [rate, setRate] = useState(monthlyRate[2]);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChange = (e) => setIsChecked(e.target.checked);
 
   return (
     <div className="widget-top">
@@ -23,11 +27,16 @@ const Top = () => {
         }}
       />
       <br />
-      <span>{rate}</span>
-
+      <span>${isChecked ? rate - rate * 0.25 : rate}</span>
+      <span> /month</span>
       <label className="switch">
         <input type="checkbox" />
-        <span className="slider"></span>
+        <div className="slider">
+          <span>Monthly Billing</span>
+          <IOSSwitch checked={isChecked} onChange={handleChange} />
+          <span>Yearly Billing</span>
+          <span>-25%</span>
+        </div>
       </label>
     </div>
   );
