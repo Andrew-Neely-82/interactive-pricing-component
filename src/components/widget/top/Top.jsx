@@ -13,8 +13,13 @@ const Top = () => {
 
   return (
     <div className="widget-top">
-      <span className="views">{views} Page Views</span>
-      <br />
+      <div className="views-rate-container">
+        <p className="views">{views} PAGEVIEWS</p>
+        <p>
+          <span className="rate">${isChecked ? rate - rate * 0.25 : rate}</span>
+          <span> /month</span>
+        </p>
+      </div>
       <input
         id="slider"
         type="range"
@@ -28,8 +33,7 @@ const Top = () => {
         }}
       />
       <br />
-      <span className="rate">${isChecked ? rate - rate * 0.25 : rate}</span>
-      <span> /month</span>
+
       <div className="billing-container">
         <span>Monthly Billing</span>
         <IOSSwitch checked={isChecked} onChange={handleChange} />

@@ -8,12 +8,19 @@
 // * Heading
 
 .heading-container {
+  width: 100%;
   padding: 3rem 0 10rem 0;
+
   .blob {
     position: absolute;
     width: 100%;
-    inset: 0;
+    height: 450px;
+    top: 0;
+    left: 0;
     z-index: -100;
+
+    @media screen and (max-width: 375px) {
+    }
   }
 
   h1 {
@@ -21,26 +28,38 @@
   }
 
   p {
+    display: inline;
+    @media screen and (max-width: 375px) {
+      display: block;
+    }
   }
 }
 
 // * Widget
-
 .widget {
   background: map-get($colors, Pricing-Component-Background);
-  margin-inline: 30%;
+  width: 35rem;
   border-radius: 1rem;
+  margin-inline: auto;
+
+  @media screen and (max-width: 375px) {
+    width: fit-content;
+    margin: 0 1rem;
+  }
 }
 
 // * Top.jsx
-
 .widget-top {
   font-size: 14px;
 
-  .views {
-  }
+  .views-rate-container {
+    display: flex;
+    justify-content: space-between;
+    .views {
+    }
 
-  .rate {
+    .rate {
+    }
   }
 
   .billing-container {
@@ -59,10 +78,15 @@
   }
 }
 
+// * Top.jsx
 .widget-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 375px) {
+    flex-direction: column;
+  }
 
   .perks-container {
     display: flex;
@@ -93,5 +117,8 @@
 
 .widget-top,
 .widget-bottom {
-  padding: 2rem;
+  padding: 3rem;
+
+  @media screen and (max-width: 375px) {
+  }
 }

@@ -1,18 +1,30 @@
+// prettier-ignore
 $colors: (
-  // * Primary
+  // * Text
+  "Text": hsl(225, 20%, 60%),
+  "CTAText": hsl(226, 100%, 87%),
+  
+  // * Background
+  "Main-Background": hsl(230, 100%, 99%),
+  "Toggle-Background": hsl(223, 50%, 87%),
+  "Pricing-Component-Background": hsl(0, 0%, 100%),
+  "CTA-Background": hsl(227, 35%, 25%),
+  "DiscountBackground": hsl(14, 92%, 95%),
+  
+  // * Slider
   "SliderBar": hsl(174, 77%, 80%),
   "SliderBackground": hsl(174, 86%, 45%),
-  "DiscountBackground": hsl(14, 92%, 95%),
-  "DiscountText": hsl(15, 100%, 70%),
-  "CTAText": hsl(226, 100%, 87%),
-  // * Neutral
-  "Pricing-Component-Background": hsl(0, 0%, 100%),
-  "Main-Background": hsl(230, 100%, 99%),
   "Empty-Slider-Bar": hsl(224, 65%, 95%),
-  "Toggle-Background": hsl(223, 50%, 87%),
-  "Text": hsl(225, 20%, 60%),
-  "CTA-Background": hsl(227, 35%, 25%)
+
+  // * Primary
+  "DiscountText": hsl(15, 100%, 70%),  
 );
+
+@mixin inputBG {
+  background-image: url(https://digitshack.com/codepen/mentor5/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 * {
   box-sizing: border-box;
@@ -22,31 +34,32 @@ $colors: (
   padding: 0;
 }
 
+body {
+  background-image: url("../assets/svg/bg-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 input[type="range"] {
-  width: 100%;
   -webkit-appearance: none;
-  border-radius: 5px;
+  width: 100%;
+  border-radius: 10rem;
   height: 10px;
-  background: hsl(174, 77%, 80%) 50%;
-  cursor: pointer;
+  background: map-get($colors, SliderBar);
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
-  background-color: hsl(174, 86%, 45%);
-  background-image: url(https://digitshack.com/codepen/mentor5/icon-slider.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  border-radius: 100%;
+  background-color: map-get($colors, SliderBackground);
+  @include inputBG();
   box-shadow: 0px 7px 10px 4px #10d5c233;
+  cursor: pointer;
 }
 
 input[type="range"]::-webkit-slider-thumb:active {
+  @include inputBG();
   cursor: grab;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  background-color: #a5f3eb;
 }
