@@ -16,6 +16,7 @@ const Top = () => {
       <span className="views">{views} Page Views</span>
       <br />
       <input
+        id="slider"
         type="range"
         step={1}
         min={0}
@@ -27,17 +28,14 @@ const Top = () => {
         }}
       />
       <br />
-      <span>${isChecked ? rate - rate * 0.25 : rate}</span>
+      <span className="rate">${isChecked ? rate - rate * 0.25 : rate}</span>
       <span> /month</span>
-      <label className="switch">
-        <input type="checkbox" />
-        <div className="slider">
-          <span>Monthly Billing</span>
-          <IOSSwitch checked={isChecked} onChange={handleChange} />
-          <span>Yearly Billing</span>
-          <span>-25%</span>
-        </div>
-      </label>
+      <div className="billing-container">
+        <span>Monthly Billing</span>
+        <IOSSwitch checked={isChecked} onChange={handleChange} />
+        <span>Yearly Billing&nbsp;</span>
+        <span className="discount">-25%</span>
+      </div>
     </div>
   );
 };
