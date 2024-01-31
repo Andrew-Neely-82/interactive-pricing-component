@@ -1,21 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
 @import "./defaults.scss";
 
-.App {
-  text-align: center;
-}
-
 // * Heading
-
 .heading-container {
-  width: 100%;
-  padding: 3rem 0 10rem 0;
+  text-align: center;
 
   .blob {
     position: absolute;
+    background-image: url("../assets/svg/bg-pattern.svg");
+    @include bg;
     width: 100%;
     height: 450px;
-    top: 0;
+    top: -1rem;
     left: 0;
     z-index: -100;
 
@@ -23,12 +19,25 @@
     }
   }
 
+  .heading-text {
+    background-image: url("../assets/svg/pattern-circles.svg");
+    @include bg;
+    padding: 5rem;
+  }
   h1 {
     color: map-get($colors, CTA-Background);
+
+    @media screen and (max-width: 375px) {
+      font-size: 1.25rem;
+    }
   }
 
   p {
     display: inline;
+  }
+
+  span,
+  p {
     @media screen and (max-width: 375px) {
       display: block;
     }
@@ -37,8 +46,9 @@
 
 // * Widget
 .widget {
+  width: 40rem;
   background: map-get($colors, Pricing-Component-Background);
-  width: 35rem;
+  box-shadow: 0 1rem 2rem #00000012;
   border-radius: 1rem;
   margin-inline: auto;
 
@@ -55,17 +65,32 @@
   .views-rate-container {
     display: flex;
     justify-content: space-between;
+
     .views {
     }
 
-    .rate {
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .rate {
+        color: map-get($colors, CTA-Background);
+        font-size: 3rem;
+        font-weight: 800;
+      }
     }
   }
 
   .billing-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+
+    .billing-text,
+    .MuiSwitch-root {
+      margin-left: 1rem;
+    }
 
     .discount {
       font-size: 0.75rem;
@@ -81,7 +106,7 @@
 // * Top.jsx
 .widget-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   @media screen and (max-width: 375px) {

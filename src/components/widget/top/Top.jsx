@@ -11,34 +11,36 @@ const Top = () => {
 
   const handleChange = (e) => setIsChecked(e.target.checked);
 
+  const props = {
+    input: {
+      id: "slider",
+      type: "range",
+      step: 1,
+      min: 0,
+      max: 4,
+      defaultValue: 2,
+      onChange: (e) => {
+        setRate(monthlyRate[e.target.value]);
+        setViews(pageViews[e.target.value]);
+      },
+    },
+  };
+
   return (
     <div className="widget-top">
       <div className="views-rate-container">
         <p className="views">{views} PAGEVIEWS</p>
         <p>
-          <span className="rate">${isChecked ? rate - rate * 0.25 : rate}</span>
-          <span> /month</span>
+          <span className="rate">${isChecked ? rate - rate * 0.25 : rate}.00&nbsp;</span>
+          <span>/ month</span>
         </p>
       </div>
-      <input
-        id="slider"
-        type="range"
-        step={1}
-        min={0}
-        max={4}
-        defaultValue={2}
-        onChange={(e) => {
-          setRate(monthlyRate[e.target.value]);
-          setViews(pageViews[e.target.value]);
-        }}
-      />
-      <br />
-
+      <input {...props.input} />
       <div className="billing-container">
-        <span>Monthly Billing</span>
+        <span className="billing-text">Monthly Billing</span>
         <IOSSwitch checked={isChecked} onChange={handleChange} />
-        <span>Yearly Billing&nbsp;</span>
-        <span className="discount">25% discount</span>
+        <span className="billing-text">Yearly Billing</span>
+        <span className="billing-text discount">25% discount</span>
       </div>
     </div>
   );

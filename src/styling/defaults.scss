@@ -1,20 +1,20 @@
 // prettier-ignore
 $colors: (
   // * Text
-  "Text": hsl(225, 20%, 60%),
-  "CTAText": hsl(226, 100%, 87%),
+  "Text": #858fad,
+  "CTAText": #bdccff,
   
   // * Background
-  "Main-Background": hsl(230, 100%, 99%),
-  "Toggle-Background": hsl(223, 50%, 87%),
-  "Pricing-Component-Background": hsl(0, 0%, 100%),
+  "Main-Background": #fafbff,
+  "Toggle-Background": #ced7ee,
+  "Pricing-Component-Background": #fff,
   "CTA-Background": hsl(227, 35%, 25%),
-  "DiscountBackground": hsl(14, 92%, 95%),
+  "DiscountBackground": #feece7,
   
   // * Slider
-  "SliderBar": hsl(174, 77%, 80%),
-  "SliderBackground": hsl(174, 86%, 45%),
-  "Empty-Slider-Bar": hsl(224, 65%, 95%),
+  "SliderBar": #a5f3eb,
+  "SliderBackground": #10d5c2,
+  "Empty-Slider-HR": hsl(226, 68%, 95%),
 
   // * Primary
   "DiscountText": hsl(15, 100%, 70%),  
@@ -22,6 +22,11 @@ $colors: (
 
 @mixin inputBG {
   background-image: url(https://digitshack.com/codepen/mentor5/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin bg {
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -34,18 +39,13 @@ $colors: (
   padding: 0;
 }
 
-body {
-  background-image: url("../assets/svg/bg-pattern.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
   border-radius: 10rem;
   height: 10px;
   background: map-get($colors, SliderBar);
+  margin-block: 4rem;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -61,5 +61,10 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]::-webkit-slider-thumb:active {
   @include inputBG();
+  filter: brightness(75%);
   cursor: grab;
+}
+
+hr {
+  border: 1px solid map-get($colors, Empty-Slider-HR);
 }
