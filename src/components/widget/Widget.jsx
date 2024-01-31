@@ -3,8 +3,9 @@ import Top from "./top/Top";
 
 const Widget = () => {
   return (
-    <div>
+    <div className="widget">
       <Top />
+      <hr />
       <Bottom />
     </div>
   );

@@ -34,7 +34,7 @@ const Top = () => {
         <span>Monthly Billing</span>
         <IOSSwitch checked={isChecked} onChange={handleChange} />
         <span>Yearly Billing&nbsp;</span>
-        <span className="discount">-25%</span>
+        <span className="discount">25% discount</span>
       </div>
     </div>
   );

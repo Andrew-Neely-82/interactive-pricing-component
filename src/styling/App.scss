@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+@import "./defaults.scss";
+
+.App {
+  text-align: center;
+}
+
+// * Heading
+
+.heading-container {
+  padding: 3rem 0 10rem 0;
+  .blob {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    z-index: -100;
+  }
+
+  h1 {
+    color: map-get($colors, CTA-Background);
+  }
+
+  p {
+  }
+}
+
+// * Widget
+
+.widget {
+  background: map-get($colors, Pricing-Component-Background);
+  margin-inline: 30%;
+  border-radius: 1rem;
+}
+
+// * Top.jsx
+
+.widget-top {
+  font-size: 14px;
+
+  .views {
+  }
+
+  .rate {
+  }
+
+  .billing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .discount {
+      font-size: 0.75rem;
+      color: map-get($colors, DiscountText);
+      background: map-get($colors, DiscountBackground);
+      padding: 0.125em 6px;
+      border-radius: 10rem;
+      font-weight: 800;
+    }
+  }
+}
+
+.widget-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .perks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    span {
+      margin-block: 1rem;
+    }
+
+    span::before {
+      content: "\2713";
+      padding-right: 0.5rem;
+      color: map-get($colors, SliderBackground);
+    }
+  }
+
+  .button-container {
+    .start {
+      background-color: map-get($colors, CTA-Background);
+      color: map-get($colors, Toggle-Background);
+      border-radius: 10rem;
+      padding: 0.5rem 3rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.widget-top,
+.widget-bottom {
+  padding: 2rem;
+}

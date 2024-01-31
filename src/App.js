@@ -1,9 +1,10 @@
-import "./App.scss";
-import { Widget } from "./components/export";
+import { Heading, Widget } from "./components/export";
+import "./styling/App.scss";
 
 function App() {
   return (
     <div className="App">
+      <Heading />
       <Widget />
     </div>
   );
