@@ -24,12 +24,16 @@ const Top = () => {
         setViews(pageViews[e.target.value]);
       },
     },
+    switch: {
+      checked: isChecked,
+      onChange: handleChange,
+    },
   };
 
   return (
     <div className="widget-top">
       <div className="views-rate-container">
-        <p className="views">{views} PAGEVIEWS</p>
+        <p>{views} PAGEVIEWS</p>
         <p>
           <span className="rate">${isChecked ? rate - rate * 0.25 : rate}.00&nbsp;</span>
           <span>/ month</span>
@@ -38,7 +42,7 @@ const Top = () => {
       <input {...props.input} />
       <div className="billing-container">
         <span className="billing-text">Monthly Billing</span>
-        <IOSSwitch checked={isChecked} onChange={handleChange} />
+        <IOSSwitch {...props.switch} />
         <span className="billing-text">Yearly Billing</span>
         <span className="billing-text discount">25% discount</span>
       </div>

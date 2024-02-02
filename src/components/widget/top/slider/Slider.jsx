@@ -33,6 +33,7 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
   "& .MuiSwitch-thumb": {
     width: "16px",
     height: "16px",
+    backgroundColor: "white",
   },
   "& .MuiSwitch-track": {
     width: "50px",

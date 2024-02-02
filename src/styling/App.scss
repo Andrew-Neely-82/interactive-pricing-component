@@ -66,9 +66,6 @@
     display: flex;
     justify-content: space-between;
 
-    .views {
-    }
-
     p {
       display: flex;
       justify-content: center;
@@ -89,6 +86,7 @@
 
     .billing-text,
     .MuiSwitch-root {
+      font-size: 14px;
       margin-left: 1rem;
     }
 
@@ -103,7 +101,7 @@
   }
 }
 
-// * Top.jsx
+// * Bottom.jsx
 .widget-bottom {
   display: flex;
   justify-content: space-between;
@@ -123,9 +121,10 @@
     }
 
     span::before {
-      content: "\2713";
-      padding-right: 0.5rem;
+      content: url("../assets/svg/icon-check.svg");
       color: map-get($colors, SliderBackground);
+      font-weight: 800;
+      margin-right: 1rem;
     }
   }
 
